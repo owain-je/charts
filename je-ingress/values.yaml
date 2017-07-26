@@ -1,8 +1,8 @@
 
 rules:
-- host: atlas-api.dev.onzo.cloud
+- host: atlas-api.dev.example.com
   http:
     paths:
     - backend:  
-        serviceName: dev-atlas-api-proxy-atlas-api-proxy
+        serviceName: dev-api-proxy-api-proxy
         servicePort: 8081
