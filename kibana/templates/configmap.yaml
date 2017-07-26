@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ printf "%s-%s" .Release.Name .Values.name | trunc 24 }}"
+data:
+  kibana.yaml: |+
+    server.port: {{ .Values.service.internalPort }}
+    server.host: '0.0.0.0'
+    #server.basePath: ""
+    #server.maxPayloadBytes: 1048576
+    #server.name: "{{ .Values.elasticsearch.servername }}"
+    elasticsearch.url: '{{ .Values.elasticsearchUrl }}'
+    #elasticsearch.preserveHost: true
+    #kibana.index: ".kibana"
+    #kibana.defaultAppId: "discover"
+    #elasticsearch.username: "user"
+    #elasticsearch.password: "pass"
+    #server.ssl.cert: /path/to/your/server.crt
+    #server.ssl.key: /path/to/your/server.key
+    #elasticsearch.ssl.cert: /path/to/your/client.crt
+    #elasticsearch.ssl.key: /path/to/your/client.key
+    #elasticsearch.ssl.ca: /path/to/your/CA.pem
+    #elasticsearch.ssl.verify: true
+    elasticsearch.pingTimeout: {{ .Values.elasticsearch.pingTimeout }}
+    elasticsearch.requestTimeout: {{ .Values.elasticsearch.requestTimeout }}
+    #elasticsearch.requestHeadersWhitelist: [ authorization ]
+    #elasticsearch.customHeaders: {}
+    elasticsearch.shardTimeout: {{ .Values.elasticsearch.shardTimeout }}
+    #elasticsearch.startupTimeout: 5000
+    #pid.file: /var/run/kibana.pid
+    #logging.dest: stdout
+    #logging.silent: false
+    #logging.quiet: false
+    #logging.verbose: false
+    #ops.interval: 5000

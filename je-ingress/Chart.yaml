@@ -1,0 +1,4 @@
+apiVersion: v1
+description: ingress controller chart 
+name: je-ingress
+version: 0.1.0

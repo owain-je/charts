@@ -1,0 +1,4 @@
+apiVersion: v1
+description: prometheus-servicemonitor
+name: prometheus-servicemonitor
+version: 0.1.0

@@ -1,0 +1,69 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{.Release.Name}}-{{.Values.component}}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-{{.Values.component}}"
+spec:
+  replicas: {{.Values.replicaCount}}
+  template:
+    metadata:
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+        component: "{{.Release.Name}}-{{.Values.component}}"
+    spec:
+      containers:
+      - name: logstash-internal
+        image:  {{.Values.image.repository}}:{{.Values.image.tag}}
+        imagePullPolicy: "{{.Values.image.pullPolicy}}"
+        env:
+        - name: LS_JAVA_OPTS
+          value: "-Xms{{.Values.heap.min}} -Xmx{{.Values.heap.max}}"
+        - name: HTTP_PORT
+          value: "{{.Values.metrics.port}}"
+        ports:
+          - containerPort: 5044
+            name: beats
+            protocol: TCP
+          - containerPort: 5050
+            name: tcp
+            protocol: TCP
+          - containerPort: {{.Values.metrics.port}}
+            name: metrics
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9600
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9600
+          timeoutSeconds: 5
+        resources:
+          requests:
+            cpu: "{{.Values.resources.requests.cpu}}"
+            memory: "{{.Values.resources.requests.memory}}"
+          limits:
+            cpu: "{{.Values.resources.limits.cpu}}"
+            memory: "{{.Values.resources.limits.memory}}"
+        volumeMounts:
+        - mountPath: /usr/share/logstash/pipeline
+          name: config-volume
+      volumes:
+      - name: config-volume
+        configMap:
+          name: "{{.Release.Name}}-{{.Values.component}}"
+
+
+
+
+
+

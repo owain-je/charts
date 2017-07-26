@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: {{ template "name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: {{ template "fullname" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: configmap-{{ template "name" . }}
+data:
+  appsettings.json: |+ 
+    ﻿{
+      "connection": "server={{ .Values.mysql.server }}.{{ .Release.Namespace }};user id={{ .Values.mysql.user }};password={{ .Values.mysql.password }};persistsecurityinfo=True;port=3306;database={{ .Values.mysql.database }}"
+    }

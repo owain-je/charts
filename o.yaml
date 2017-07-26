@@ -1,0 +1,7 @@
+[debug] Created tunnel using local port: '40195'
+
+[debug] SERVER: "localhost:40195"
+
+Release "prometheus-op" does not exist. Installing it now.
+[debug] CHART PATH: /git/je/infrastructure/k8s-demo/charts/kube-prometheus
+

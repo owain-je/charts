@@ -1,0 +1,29 @@
+replicaCount: 1
+name: kibana
+image:
+  repository: kibana
+  tag: 5.1.2
+  pullPolicy: IfNotPresent
+service:
+  name: nginx
+  type: ClusterIP
+  externalPort: 5601
+  internalPort: 5601
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+elasticsearchUrl: http://elasticsearch-internal.infra:9200
+
+annotations:
+  zalando.org/dnsname: name.example.com
+
+elasticsearch:
+  requestTimeout: 60000
+  pingTimeout: 1500
+  shardTimeout: 0 
+  server-name: "servername"

@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: prometheus
+    k8s-apps: http
+    prometheus: prometheus-op
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  name: onzo-servicemonitor
+spec:
+  endpoints:
+  - interval: 15s
+    port: metrics
+  - interval: 15s
+    port: akka-metrics
+  selector:
+    matchLabels:
+      monitorme: metrics
+  namespaceSelector:
+    any: true

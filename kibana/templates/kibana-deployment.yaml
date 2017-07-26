@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ printf "%s-%s" .Release.Name .Values.name | trunc 24 }}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-{{.Values.name}}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+        component: "{{.Release.Name}}-{{.Values.name}}"
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+          - name: "ELASTICSEARCH_URL"
+            value: "{{ .Values.elasticsearchUrl }}"            
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+          name: ui
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+          initialDelaySeconds: 60
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.internalPort }}
+          timeoutSeconds: 5
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/kibana-notworking
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+      volumes:
+      - name: config-volume
+        configMap:
+          name: "{{ printf "%s-%s" .Release.Name .Values.name | trunc 24 }}"

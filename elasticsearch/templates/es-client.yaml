@@ -1,0 +1,107 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: "{{ printf "%s-client-%s" .Release.Name .Values.Name | trunc 24 }}"
+  labels:
+    heritage: {{.Release.Service | quote }}
+    release: {{.Release.Name | quote }}
+    chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    component: "{{.Release.Name}}-{{.Values.Component}}"
+    role: client
+spec:
+  replicas: {{default 2 .Values.ClientReplicas }}
+  template:
+    metadata:
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+        component: "{{.Release.Name}}-{{.Values.Component}}"
+        role: client
+      annotations:
+        pod.beta.kubernetes.io/init-containers: '[
+          {
+          "name": "sysctl",
+            "image": "busybox",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sysctl", "-w", "vm.max_map_count=262144"],
+            "securityContext": {
+              "privileged": true
+            }
+          },
+          {
+          "name": "sysctl1",
+            "image": "busybox",
+            "imagePullPolicy": "IfNotPresent",
+            "command": ["sysctl", "-w", "net.ipv6.conf.all.disable_ipv6=1"],
+            "securityContext": {
+              "privileged": true
+            }
+          }
+          ]'
+    spec:
+      #serviceAccountName: "{{ printf "%s-%s" .Release.Name .Values.Name | trunc 24 }}"
+      containers:
+      - name: es-client
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+              - IPC_LOCK
+        image: "{{.Values.Image}}:{{.Values.ImageTag}}"
+        imagePullPolicy: "{{.Values.ImagePullPolicy}}"
+        env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: "CLUSTER_NAME"
+          value: "{{ printf "%s-%s" .Release.Name .Values.Name | trunc 24 }}"
+        - name: "DISCOVERY_SERVICE"
+          value: "{{ printf "%s-%s-discovery" .Release.Name .Values.Name | trunc 24 }}" 
+        - name: NODE_MASTER
+          value: "false"
+        - name: NODE_DATA
+          value: "false"
+        - name: HTTP_ENABLE
+          value: "true"
+        - name: "ES_JAVA_OPTS"
+          value: "-Xms{{.Values.ClientHeapSize}} -Xmx{{.Values.ClientHeapSize}}"
+        - name: "ES_PLUGINS_INSTALL"
+          value: {{ .Values.Plugins }}
+        - name: "NODE_NAME"
+          value: " "
+        - name: NETWORK_HOST
+          value: 0.0.0.0
+        resources:
+          requests:
+            cpu: "{{.Values.ClientCpuRequests}}"
+            memory: "{{.Values.ClientMemoryRequests}}"
+          limits:
+            cpu: "{{.Values.ClientCpuLimits}}"
+            memory: "{{.Values.ClientMemoryLimits}}"
+        #livenessProbe:
+        #  httpGet:
+        #    path: /
+        #    port: 9200
+        #  initialDelaySeconds: 30
+        #  timeoutSeconds: 1
+        #readinessProbe:
+        #  httpGet:
+        #    path: /
+        #    port: 9200
+        #  timeoutSeconds: 5
+        ports:
+        - containerPort: 9200
+          name: http
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - name: storage
+          mountPath: /data
+      volumes:
+          - emptyDir:
+              medium: ""
+            name: "storage"

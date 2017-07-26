@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: {{ template "name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  containers:
+  - name: {{ .Chart.Name }}
+    image: "{{ .Values.schema.repository }}:{{ .Values.schema.tag }}"
+    imagePullPolicy: {{ .Values.schema.pullPolicy }}
+    env:
+    - name: PORT
+      value: "{{ .Values.mysql.port }}"
+    - name: USERNAME
+      value: "{{ .Values.mysql.user }}"
+    - name: PASSWORD
+      value: "{{ .Values.mysql.password }}"
+    - name: HOSTNAME
+      value: "{{ .Values.mysql.server }}" 
+    - name: POD_NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace     
+  restartPolicy: Never

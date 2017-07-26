@@ -1,0 +1,168 @@
+apiVersion: v1
+entries:
+  cp-nginx-ingress:
+  - created: 2017-07-24T22:54:30.617983887Z
+    description: nginx Ingress controller that uses ConfigMap to store the nginx configuration.
+    digest: 4f98c0d549784388fd85efbe2510e48f189622ca3757b8ff97e76445114202ea
+    engine: gotpl
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    maintainers:
+    - email: jack.zampolin@gmail.com
+      name: Jack Zampolin
+    - email: mgoodness@gmail.com
+      name: Michael Goodness
+    - email: chance.zibolski@coreos.com
+      name: Chance Zibolski
+    name: cp-nginx-ingress
+    sources:
+    - https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx
+    urls:
+    - https://owain-je.github.io/charts/cp-nginx-ingress-0.3.4.tgz
+    version: 0.3.4
+  - created: 2017-07-24T22:54:30.617105954Z
+    description: Onzo modified nginx Ingress controller that uses ConfigMap to store
+      the nginx configuration.
+    digest: 1089d95cf85163a2ee3f8e667243deaabb37bbc9d47737b646b7fde05f4efc62
+    engine: gotpl
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    maintainers:
+    - email: jack.zampolin@gmail.com
+      name: Jack Zampolin
+    - email: mgoodness@gmail.com
+      name: Michael Goodness
+    - email: chance.zibolski@coreos.com
+      name: Chance Zibolski
+    name: cp-nginx-ingress
+    sources:
+    - https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx
+    urls:
+    - https://owain-je.github.io/charts/cp-nginx-ingress-0.3.3.tgz
+    version: 0.3.3
+  elasticsearch:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.61829673Z
+    description: elastic search
+    digest: 49aacfbccee1793f7a2550a84b208852cfa2d8f70605fc38c36cf098bd4a5284
+    icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
+    name: elasticsearch
+    urls:
+    - https://owain-je.github.io/charts/elasticsearch-0.1.5.tgz
+    version: 0.1.5
+  filebeat:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.618495853Z
+    description: filebeat to logstash for kubernetes nodes
+    digest: 5aa007db2bb2fe72b5e8b6a6dc1de14784979ab57b068b963fe9075f546b26d2
+    icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
+    name: filebeat
+    urls:
+    - https://owain-je.github.io/charts/filebeat-0.1.0.tgz
+    version: 0.1.0
+  je-ingress:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.618652215Z
+    description: ingress controller chart
+    digest: d3a2ba72ab2ecd7050c95387ac71c81e06a5deced4223e1df5e9134e43ec98f1
+    name: je-ingress
+    urls:
+    - https://owain-je.github.io/charts/je-ingress-0.1.0.tgz
+    version: 0.1.0
+  kibana:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.618903366Z
+    description: simple kibana chart
+    digest: 77964f343261d92f4f6d0a5c7d6e2c32e9d9c0d61a8b9ec128fa5fa218f403dd
+    icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
+    name: kibana
+    urls:
+    - https://owain-je.github.io/charts/kibana-0.1.3.tgz
+    version: 0.1.3
+  kube-prometheus:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.621444717Z
+    description: Manifests, dashboards, and alerting rules for end-to-end Kubernetes
+      cluster monitoring.
+    digest: 1351c5b2a57c31f4572f0c5b3e8bba64e7d6e8e33975849f30b1a45b7eb42c12
+    engine: gotpl
+    maintainers:
+    - email: mgoodness@gmail.com
+      name: Michael Goodness
+    name: kube-prometheus
+    sources:
+    - https://github.com/coreos/prometheus-operator
+    urls:
+    - https://owain-je.github.io/charts/kube-prometheus-0.2.0.tgz
+    version: 0.2.0
+  logstash-internal:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.621686921Z
+    description: Internal logstash for filebeats
+    digest: b6dae59b94a9712ab3e249dec5716fef29b2d648274c667d8ef5f4e8cad92b4a
+    icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
+    name: logstash-internal
+    urls:
+    - https://owain-je.github.io/charts/logstash-internal-0.1.1.tgz
+    version: 0.1.1
+  mysql:
+  - created: 2017-07-24T22:54:30.6220895Z
+    description: Fast, reliable, scalable, and easy to use open-source relational
+      database system.
+    digest: c5f83a386998eb9a17b537dec53f108112bf64c7a6fb832435e9e65b805e4ad5
+    engine: gotpl
+    home: https://www.mysql.com/
+    icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
+    keywords:
+    - mysql
+    - database
+    - sql
+    maintainers:
+    - email: viglesias@google.com
+      name: Vic Iglesias
+    name: mysql
+    sources:
+    - https://github.com/kubernetes/charts
+    - https://github.com/docker-library/mysql
+    urls:
+    - https://owain-je.github.io/charts/mysql-0.2.6.tgz
+    version: 0.2.6
+  piapp:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.622344783Z
+    description: A Helm chart for Kubernetes
+    digest: 37ca28d499827dbb1a16abba06d7d28e66088d753c36c2cfce5db496c86ca88e
+    name: piapp
+    urls:
+    - https://owain-je.github.io/charts/piapp-0.1.0.tgz
+    version: 0.1.0
+  prometheus-operator:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.622707173Z
+    description: Provides easy monitoring definitions for Kubernetes services, and
+      deployment and management of Prometheus instances.
+    digest: a92ef4ac62eab39efc78194d33673a84e092d3909b769174912806e87014c9e2
+    engine: gotpl
+    maintainers:
+    - email: mgoodness@gmail.com
+      name: Michael Goodness
+    name: prometheus-operator
+    sources:
+    - https://github.com/coreos/prometheus-operator
+    urls:
+    - https://owain-je.github.io/charts/prometheus-operator-0.0.1.tgz
+    version: 0.0.1
+  prometheus-servicemonitor:
+  - apiVersion: v1
+    created: 2017-07-24T22:54:30.622882806Z
+    description: prometheus-servicemonitor
+    digest: cc19c6c01952efe5fffd37a0bfa3c86bc14e637120b3257c707fb7e88e71352a
+    name: prometheus-servicemonitor
+    urls:
+    - https://owain-je.github.io/charts/prometheus-servicemonitor-0.1.0.tgz
+    version: 0.1.0
+generated: 2017-07-24T22:54:30.614862706Z
