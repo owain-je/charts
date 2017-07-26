@@ -6,7 +6,7 @@ metadata:
     k8s-apps: http
     prometheus: prometheus-op
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
-  name: onzo-servicemonitor
+  name: prom-servicemonitor
 spec:
   endpoints:
   - interval: 15s
