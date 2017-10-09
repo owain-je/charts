@@ -1,0 +1,14 @@
+# An Ingress with 2 hosts and 3 endpoints
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-{{ template "name" . }}
+spec:
+  rules:
+  - host: "{{ .Values.ingress.name}}.{{ .Release.Namespace }}.{{ .Values.ingress.postfix}}"
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "fullname" . }}
+          servicePort: {{ .Values.service.externalPort }}
