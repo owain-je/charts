@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: 375012098440.dkr.ecr.eu-west-1.amazonaws.com/demo/piappui
+  repository: 375012098440.dkr.ecr.eu-west-1.amazonaws.com/demo/piui
   tag: 1.0.0
   pullPolicy: IfNotPresent
 service:
