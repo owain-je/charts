@@ -19,7 +19,8 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-pi_app_service: "http://piapp-piapp:5001"
+pi_app_service: "piapp-piapp"
+pi_app_port: 5001
 
 ingress:
   postfix: "mars.unimatrix0.je-labs.com"
