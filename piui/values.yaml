@@ -1,0 +1,23 @@
+# Default values for piapp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: 375012098440.dkr.ecr.eu-west-1.amazonaws.com/demo/piappui
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+service:
+  name: piapp
+  type: ClusterIP
+  externalPort: 5002
+  internalPort: 5002
+resources: 
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+pi_app_service: "http://piapp-piapp:5001"
+

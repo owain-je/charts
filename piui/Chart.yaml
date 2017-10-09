@@ -1,0 +1,4 @@
+apiVersion: v1
+description: piui chart for kubernetes
+name: piui
+version: 0.1.0
