@@ -11,5 +11,5 @@ metadata:
 data:
   appsettings.json: |+ 
     ﻿{
-      "pi_app_service": "{{ .Values.pi_app_protocol }}.{{ .Release.Namespace }}-{{ .Values.pi_app_service }}:{{ .Values.pi_app_port }}"
+      "pi_app_service": "{{ .Values.pi_app_protocol }}{{ .Release.Namespace }}-{{ .Values.pi_app_service }}:{{ .Values.pi_app_port }}"
     }
