@@ -21,3 +21,6 @@ resources:
 
 pi_app_service: "http://piapp-piapp:5001"
 
+ingress:
+  postfix: "mars.unimatrix0.je-labs.com"
+  name: "piui"
