@@ -34,5 +34,5 @@ Plugins: "https://distfiles.compuscene.net/elasticsearch/elasticsearch-prometheu
 
 
 curator: 
-  days: 150
+  days: 5
   

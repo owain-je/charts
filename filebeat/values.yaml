@@ -10,7 +10,7 @@ resources:
     cpu: 50m
     memory: 50Mi
 logstash:
-  host: logstash-internal.infra
+  host: logstash-internal.monitoring
   port: 5044
 loglevel: info 
 terminationGracePeriodSeconds: 30

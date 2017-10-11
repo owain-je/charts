@@ -42,8 +42,15 @@ spec:
         ]'
     spec:
       terminationGracePeriodSeconds: 10
+      nodeSelector:
+        type: elasticsearch
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "elasticsearch"
+        effect: "NoSchedule"
       containers:
-      - name: es-data
+      - name: es-data        
         securityContext:
           privileged: true
           capabilities:
