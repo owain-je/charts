@@ -1,0 +1,9 @@
+dependencies:
+- name: piui
+  repository: https://owain-je.github.io/charts
+  version: 0.1.1
+- name: piapp
+  repository: https://owain-je.github.io/charts
+  version: 0.1.1
+digest: sha256:f80e58745a73ff94e9dd172168c13ccd535fb11a5d38bc405690628efade4470
+generated: 2017-10-27T15:59:44.9892835+01:00
