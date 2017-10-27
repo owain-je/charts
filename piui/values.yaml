@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: registry.unimatrix0.je-labs/demo/piui
+  repository: registry.unimatrix0.je-labs.com/demo/piui
   tag: latest
   pullPolicy: IfNotPresent
 service:
