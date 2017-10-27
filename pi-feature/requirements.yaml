@@ -1,0 +1,8 @@
+# requirements.yaml
+dependencies:
+- name: piui
+  version: "0.1.1"
+  repository: "https://owain-je.github.io/charts"
+- name: piapp
+  version: "0.1.1"
+  repository: "https://owain-je.github.io/charts"
