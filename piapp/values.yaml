@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: registry.unimatrix0.je-labs/demo/piapp
-  tag: 1.0.16
+  tag: latest
   pullPolicy: IfNotPresent
 service:
   name: piapp
@@ -21,7 +21,7 @@ resources:
 
 schema:
   repository: registry.unimatrix0.je-labs/demo/piapp-schema
-  tag: 11
+  tag: latest
   pullPolicy: IfNotPresent
 
 

@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: registry.unimatrix0.je-labs/demo/piui
-  tag: 1.0.0
+  tag: latest
   pullPolicy: IfNotPresent
 service:
   name: piapp
