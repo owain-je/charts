@@ -6,3 +6,6 @@ dependencies:
 - name: piapp
   version: "0.1.1"
   repository: "https://owain-je.github.io/charts"
+- name: mysql
+  version: "0.2.6"
+  repository: "https://owain-je.github.io/charts"

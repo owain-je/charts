@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "piapp.fullname" . }}
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "piapp.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "name" . }}
+        app: {{ template "piapp.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
@@ -41,4 +41,4 @@ spec:
       volumes:
       - name: config-volume
         configMap:
-          name: configmap-{{ template "name" . }}
+          name: configmap-{{ template "piapp.name" . }}

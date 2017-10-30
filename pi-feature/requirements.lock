@@ -5,5 +5,8 @@ dependencies:
 - name: piapp
   repository: https://owain-je.github.io/charts
   version: 0.1.1
-digest: sha256:f80e58745a73ff94e9dd172168c13ccd535fb11a5d38bc405690628efade4470
-generated: 2017-10-27T15:59:44.9892835+01:00
+- name: mysql
+  repository: https://owain-je.github.io/charts
+  version: 0.2.6
+digest: sha256:b009fe89816dbc4606032eb1556f31d65e2bf2ba4f4cfc48d4a64831faeee37c
+generated: 2017-10-30T13:55:27.2551457Z

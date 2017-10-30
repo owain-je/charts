@@ -2,12 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    app: {{ template "name" . }}
+    app: {{ template "piapp.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ template "fullname" . }}
+    component: {{ template "piapp.fullname" . }}
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
-  name: configmap-{{ template "name" . }}
+  name: configmap-{{ template "piapp.name" . }}
 data:
   appsettings.json: |+ 
     ﻿{
