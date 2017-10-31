@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   aws-ecr-proxy:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.209576203Z
+    created: 2017-10-30T17:20:35.81063356Z
     description: A Helm chart for Kubernetes
     digest: ea8a5159ee6f0178b9f22d2a995b7f3e7b474ee1113df9d82b099cb5d5e3b3cc
     name: aws-ecr-proxy
@@ -10,7 +10,7 @@ entries:
     - https://owain-je.github.io/charts/aws-ecr-proxy-0.1.0.tgz
     version: 0.1.0
   cp-nginx-ingress:
-  - created: 2017-10-27T15:01:11.211361976Z
+  - created: 2017-10-30T17:20:35.812927499Z
     description: nginx Ingress controller that uses ConfigMap to store the nginx configuration.
     digest: 4f98c0d549784388fd85efbe2510e48f189622ca3757b8ff97e76445114202ea
     engine: gotpl
@@ -31,7 +31,7 @@ entries:
     urls:
     - https://owain-je.github.io/charts/cp-nginx-ingress-0.3.4.tgz
     version: 0.3.4
-  - created: 2017-10-27T15:01:11.210495117Z
+  - created: 2017-10-30T17:20:35.812108735Z
     description: Onzo modified nginx Ingress controller that uses ConfigMap to store
       the nginx configuration.
     digest: 1089d95cf85163a2ee3f8e667243deaabb37bbc9d47737b646b7fde05f4efc62
@@ -55,7 +55,7 @@ entries:
     version: 0.3.3
   elasticsearch:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.21170073Z
+    created: 2017-10-30T17:20:35.81321756Z
     description: elastic search
     digest: 783dafc40c7ac67483bd542534a184afbf503bb7ecb2187196da6df646aeb20e
     icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
@@ -65,7 +65,7 @@ entries:
     version: 0.1.5
   filebeat:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.211897991Z
+    created: 2017-10-30T17:20:35.813410445Z
     description: filebeat to logstash for kubernetes nodes
     digest: aa41e4f2db8b72f46eb61f36983eed10108a4db9050a9c57743a0b8cb6356415
     icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
@@ -75,7 +75,7 @@ entries:
     version: 0.1.0
   grant-app:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.212140698Z
+    created: 2017-10-30T17:20:35.813648751Z
     description: A Helm chart for Kubernetes
     digest: 4b5b59adda4babea12ed81ca427e756a2e11661761900556794342e5317374d0
     name: grant-app
@@ -84,7 +84,7 @@ entries:
     version: 0.1.0
   je-ingress:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.212298355Z
+    created: 2017-10-30T17:20:35.813799834Z
     description: ingress controller chart
     digest: 49edeff86efede7b970ec86d2426ac833278a2c5b79666224d818b293f38394a
     name: je-ingress
@@ -93,7 +93,7 @@ entries:
     version: 0.1.0
   kibana:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.212549452Z
+    created: 2017-10-30T17:20:35.81404036Z
     description: simple kibana chart
     digest: 77964f343261d92f4f6d0a5c7d6e2c32e9d9c0d61a8b9ec128fa5fa218f403dd
     icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
@@ -103,10 +103,10 @@ entries:
     version: 0.1.3
   kube-prometheus:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.215178996Z
+    created: 2017-10-30T17:20:35.816632749Z
     description: Manifests, dashboards, and alerting rules for end-to-end Kubernetes
       cluster monitoring.
-    digest: b5ea3addee9548c06ca2ce1448be8edd16b45e811b3f5dfb10f77777601476f2
+    digest: 075e7cb5ab47b4ea5a9c2b0e03c6fc8ac5ca5bacbb0bbe819055de6a0b9d0b82
     engine: gotpl
     maintainers:
     - email: mgoodness@gmail.com
@@ -119,7 +119,7 @@ entries:
     version: 0.2.0
   logstash-internal:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.215418656Z
+    created: 2017-10-30T17:20:35.816869485Z
     description: Internal logstash for filebeats
     digest: b6dae59b94a9712ab3e249dec5716fef29b2d648274c667d8ef5f4e8cad92b4a
     icon: https://pbs.twimg.com/profile_images/605772142286749697/ZyxmB26y.png
@@ -128,7 +128,7 @@ entries:
     - https://owain-je.github.io/charts/logstash-internal-0.1.1.tgz
     version: 0.1.1
   mysql:
-  - created: 2017-10-27T15:01:11.215830157Z
+  - created: 2017-10-30T17:20:35.817271156Z
     description: Fast, reliable, scalable, and easy to use open-source relational
       database system.
     digest: c5f83a386998eb9a17b537dec53f108112bf64c7a6fb832435e9e65b805e4ad5
@@ -151,7 +151,7 @@ entries:
     version: 0.2.6
   nginx-ingress:
   - appVersion: 0.9.0-beta.14
-    created: 2017-10-27T15:01:11.216529997Z
+    created: 2017-10-30T17:20:35.817983655Z
     description: An nginx Ingress controller that uses ConfigMap to store the nginx
       configuration.
     digest: ee67726a1e01c24123625ccad4e99ac495aa6c7e8d51b9a759ee89d8beab265a
@@ -175,16 +175,24 @@ entries:
     version: 0.8.7
   pi-feature:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.217081969Z
+    created: 2017-10-30T17:20:35.818814471Z
     description: A Helm chart for Kubernetes
-    digest: 41a6a0f0315d1f3038096015b230c40efbfb43bd76d6fb049e27479bb5098775
+    digest: d7db42e27dc9a911935acac409d282768a2d524f26b55689952bd41b2176b760
     name: pi-feature
     urls:
     - https://owain-je.github.io/charts/pi-feature-0.1.0.tgz
     version: 0.1.0
   piapp:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.217628336Z
+    created: 2017-10-30T17:20:35.820609217Z
+    description: A Helm chart for Kubernetes
+    digest: 82bf6f35a7cfe6e44e58f94e6647f6e72bc4f744757308723ef7c07263724374
+    name: piapp
+    urls:
+    - https://owain-je.github.io/charts/piapp-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    created: 2017-10-30T17:20:35.820347418Z
     description: A Helm chart for Kubernetes
     digest: 05b080a2b44fe3cad578342474c6de2e291913f339dc0a0028382ce77e525970
     name: piapp
@@ -192,7 +200,7 @@ entries:
     - https://owain-je.github.io/charts/piapp-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.21739288Z
+    created: 2017-10-30T17:20:35.819537284Z
     description: A Helm chart for Kubernetes
     digest: 81ef65a6ea34792a6f7476629df3c1d99e1bda801b68b50cd257e8fc8eab250a
     name: piapp
@@ -201,7 +209,15 @@ entries:
     version: 0.1.0
   piui:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.218119692Z
+    created: 2017-10-30T17:20:35.822439286Z
+    description: piui chart for kubernetes
+    digest: f63523e0592e80ef29957a929fe3f56e2f411720d48bfbb03ba32341b6f91270
+    name: piui
+    urls:
+    - https://owain-je.github.io/charts/piui-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    created: 2017-10-30T17:20:35.822163143Z
     description: piui chart for kubernetes
     digest: d2ca61aabc9d8ddfe3f23e03e75ba8af93239d8d876a76e6b49d99e431f173d5
     name: piui
@@ -209,7 +225,7 @@ entries:
     - https://owain-je.github.io/charts/piui-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.217877252Z
+    created: 2017-10-30T17:20:35.821369068Z
     description: piui chart for kubernetes
     digest: da79fac8330374b3e608804a82e2c32c085d661d07349d0d44a85ee0c0a374fe
     name: piui
@@ -218,7 +234,7 @@ entries:
     version: 0.1.0
   prometheus-operator:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.218476921Z
+    created: 2017-10-30T17:20:35.822791551Z
     description: Provides easy monitoring definitions for Kubernetes services, and
       deployment and management of Prometheus instances.
     digest: c9be4dad2310d5e553ef853d8899f5cc28a600a8da65862823db6aec2728b1ed
@@ -234,11 +250,11 @@ entries:
     version: 0.0.1
   prometheus-servicemonitor:
   - apiVersion: v1
-    created: 2017-10-27T15:01:11.218642242Z
+    created: 2017-10-30T17:20:35.823632754Z
     description: prometheus-servicemonitor
     digest: bc866d353af322a9d4697adc758358d22f0be1f5385062208e943799705826ec
     name: prometheus-servicemonitor
     urls:
     - https://owain-je.github.io/charts/prometheus-servicemonitor-0.1.0.tgz
     version: 0.1.0
-generated: 2017-10-27T15:01:11.208797022Z
+generated: 2017-10-30T17:20:35.809494312Z
