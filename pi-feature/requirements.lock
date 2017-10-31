@@ -1,12 +1,12 @@
 dependencies:
 - name: piui
   repository: https://owain-je.github.io/charts
-  version: 0.1.1
+  version: 0.1.2
 - name: piapp
   repository: https://owain-je.github.io/charts
-  version: 0.1.1
+  version: 0.1.2
 - name: mysql
   repository: https://owain-je.github.io/charts
   version: 0.2.6
-digest: sha256:b009fe89816dbc4606032eb1556f31d65e2bf2ba4f4cfc48d4a64831faeee37c
-generated: 2017-10-30T13:55:27.2551457Z
+digest: sha256:ec478bb298bc781b44dd2b9e33ce31ddd2f08581be81628ee1c8bb5a04e162de
+generated: 2017-10-30T17:24:54.7903865Z

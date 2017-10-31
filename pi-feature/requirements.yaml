@@ -1,10 +1,10 @@
 # requirements.yaml
 dependencies:
 - name: piui
-  version: "0.1.1"
+  version: "0.1.2"
   repository: "https://owain-je.github.io/charts"
 - name: piapp
-  version: "0.1.1"
+  version: "0.1.2"
   repository: "https://owain-je.github.io/charts"
 - name: mysql
   version: "0.2.6"

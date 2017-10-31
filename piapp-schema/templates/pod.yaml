@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ template "pischema.fullname" . }}
+  labels:
+    app: pod-schema
+spec:
+  containers:
+  - name: {{ .Chart.Name }}
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    imagePullPolicy: {{ .Values.image.pullPolicy }}
+    #resources:
+    #  limits:
+    #    memory: 512Mi
+    #    cpu: 1
+    #  requests:
+    #    memory: 128Mi
+    #    cpu: 500mi
+ 

@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-{{ template "name" . }}
+  name: ingress-{{ template "piui.name" . }}
 spec:
   rules:
   - host: "{{ .Values.ingress.name}}.{{ .Release.Namespace }}.{{ .Values.ingress.postfix}}"
@@ -10,5 +10,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "fullname" . }}
+          serviceName: {{ template "piui.fullname" . }}
           servicePort: {{ .Values.service.externalPort }}

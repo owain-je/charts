@@ -12,6 +12,7 @@ mysql:
   mysqlDatabase: piapp
 
 piapp:
+  fullname: gwen
   mysql:
     server: localhost 
     user: piappuser
