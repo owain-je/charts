@@ -26,3 +26,19 @@ pi_app_protocol: "http://"
 ingress:
   postfix: "mars.unimatrix0.je-labs.com"
   name: "piui"
+
+piapp:
+  mysql:
+    server: localhost 
+    user: piappuser2
+    password: layer2-password
+    database: layer2-piapp
+    port: 3306
+piapp:
+  piapp-schema:
+    mysqlname: mysql
+    debug: "false"
+    mysql:
+      mysqlUser: piappuser2
+      mysqlPassword: layer2-password
+      mysqlDatabase: layer2-piapp  
