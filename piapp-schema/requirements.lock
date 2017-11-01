@@ -1,0 +1,6 @@
+dependencies:
+- name: mysql
+  repository: https://owain-je.github.io/charts
+  version: 0.2.6
+digest: sha256:b243d9f0aafc05fac8c6529bd8ae80168be3352fdf9e5b4d795453c64ba8e899
+generated: 2017-11-01T09:44:45.5227584Z

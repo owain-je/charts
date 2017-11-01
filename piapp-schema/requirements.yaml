@@ -1,0 +1,5 @@
+# requirements.yaml
+dependencies:
+- name: mysql
+  version: "0.2.6"
+  repository: "https://owain-je.github.io/charts"

@@ -20,7 +20,7 @@ resources:
     memory: 256Mi
 
 schema:
-  repository: registry.unimatrix0.je-labs/demo/piapp-schema
+  repository: registry.unimatrix0.je-labs.com/demo/piapp-schema
   tag: latest
   pullPolicy: IfNotPresent
 
