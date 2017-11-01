@@ -17,3 +17,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 
 
 
+{{- define "mysqldb.fqdn" -}}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- printf "%s-%s.%s.%s" .Release.Name "mysql" .Release.Namespace "svc.cluster.local" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

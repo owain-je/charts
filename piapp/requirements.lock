@@ -1,0 +1,6 @@
+dependencies:
+- name: piapp-schema
+  repository: https://owain-je.github.io/charts
+  version: 0.1.0
+digest: sha256:b4f8715c964a58f435cb804416e998bf0acaa7cca02f0b2be1b3ae22d7a96ced
+generated: 2017-11-01T14:05:54.3555994Z

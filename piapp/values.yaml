@@ -27,10 +27,15 @@ schema:
 
 mysql:
   server: localhost 
-  user: piapp
-  password: abc123345
-  database: piapp
+  user: piappuser1
+  password: layer1-password
+  database: layer1-piapp
   port: 3306
 
-
-    
+piapp-schema:
+  mysqlname: mysql
+  debug: "false"
+  mysql:
+    mysqlUser: piappuser1
+    mysqlPassword: layer1-password
+    mysqlDatabase: layer1-piapp    

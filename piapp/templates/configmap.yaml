@@ -7,9 +7,9 @@ metadata:
     component: {{ template "piapp.fullname" . }}
     heritage: {{ .Release.Service }}
     release: {{ .Release.Name }}
-  name: configmap-{{ template "piapp.name" . }}
+  name: configmap-{{ template "piapp.fullname" . }}
 data:
   appsettings.json: |+ 
     ﻿{
-      "connection": "server={{ .Values.mysql.server }}.{{ .Release.Namespace }};user id={{ .Values.mysql.user }};password={{ .Values.mysql.password }};persistsecurityinfo=True;port=3306;database={{ .Values.mysql.database }}"
+      "connection": "server={{ template "mysqldb.fqdn" . }};user id={{ .Values.mysql.user }};password={{ .Values.mysql.password }};persistsecurityinfo=True;port=3306;database={{ .Values.mysql.database }}"
     }
