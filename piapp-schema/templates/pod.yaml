@@ -16,16 +16,19 @@ spec:
           name: {{ template "mysqldb.fullname" . }}
           key: mysql-root-password
     - name: MYSQL_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: {{ template "mysqldb.fullname" . }}
-          key: mysql-password
+      value: {{ .Values.mysql.mysqlPassword }}
     - name: MYSQL_HOSTNAME
       value: {{ template "mysqldb.fullname" . }}
-    - name: MYSQL_USER
+    - name: MYSQL_USERNAME
       value: {{ default "" .Values.mysql.mysqlUser | quote }}
     - name: MYSQL_DATABASE
       value: {{ default "" .Values.mysql.mysqlDatabase | quote }}
+    - name: DEBUG
+      value: {{ default "false" .Values.debug | quote }}
+    - name: POD_NAMESPACE
+      value: {{ default "" .Release.Namespace | quote }}
+
+
     #resources:
     #  limits:
     #    memory: 512Mi

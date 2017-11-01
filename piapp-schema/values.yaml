@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 image:
   repository: registry.unimatrix0.je-labs.com/demo/piapp-schema
-  tag: 5
+  tag: 7
   pullPolicy: IfNotPresent
 
 resources: {}
@@ -18,7 +18,7 @@ resources: {}
   #  cpu: 100m
   #  memory: 128Mi
 mysqlname: mysql
-
+debug: "false"
 mysql:
   mysqlUser: piappuser
   mysqlPassword: some_pass-123
