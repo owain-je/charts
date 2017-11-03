@@ -5,7 +5,7 @@ metadata:
   name: ingress-{{ template "piui.name" . }}
 spec:
   rules:
-  - host: "{{ .Values.ingress.name}}.{{ .Release.Namespace }}.{{ .Values.ingress.postfix}}"
+  - host: "{{ .Values.ingress.name}}-{{ .Release.Namespace }}.{{ .Values.ingress.postfix}}"
     http:
       paths:
       - path: /

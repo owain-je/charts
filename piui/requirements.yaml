@@ -1,5 +1,5 @@
 # requirements.yaml
 dependencies:
 - name: piapp
-  version: "0.1.1"
+  version: "0.1.2"
   repository: "https://owain-je.github.io/charts"
