@@ -1,0 +1,16 @@
+1. {{ .Release.Name }}-admin - This is an externally visible service. To find the endpoint information for this run:
+
+kubectl get services -w {{ .Release.Name }}-proxy
+
+The external ip can be used with the ports listed to connect to API's hosted by KONG.
+
+2. {{ .Release.Name }}-admin - This service is internal and only has a ClusterIP assigned.
+
+//List ClusterIP
+kubectl get services -w {{ .Release.Name }}-admin
+
+//Connect to admin interface
+export PODNAME=$(kubectl get pods | grep -i {{ .Release.Name }}-kong-gateway | awk '{print $1}')
+kubectl port-forward $PODNAME 8001:8001
+
+curl http://localhost:8001

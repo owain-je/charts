@@ -1,0 +1,75 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.kongAppName }}
+spec:
+  replicas: {{ .Values.kongInstanceCount }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Release.Name }}-{{ .Values.kongAppName }}
+        app:  {{ .Release.Name }}-{{ .Values.kongAppName }}
+    spec:
+      containers:
+      - name: kong
+        image: kong
+        env:
+          - name: KONG_NGINX_DAEMON
+            value: "off"
+          - name: KONG_PROXY_ACCESS_LOG
+            value: "/dev/stdout"
+          - name: KONG_ADMIN_ACCESS_LOG
+            value: "/dev/stdout"
+          - name: KONG_PROXY_ERROR_LOG
+            value: "/dev/stderr"
+          - name: KONG_ADMIN_ERROR_LOG
+            value: "/dev/stderr"
+          - name: KONG_DATABASE
+            value: {{ .Values.database.KONG_DATABASE }}
+          - name: KONG_LOG_LEVEL
+            value: {{ .Values.database.KONG_LOG_LEVEL }}
+        {{ if eq .Values.database.KONG_DATABASE "cassandra" }}
+          {{ if .Values.database.deployment.deployStore }}
+          - name: KONG_CASSANDRA_CONTACT_POINTS
+            value: {{ .Release.Name }}-{{ .Values.database.deployment.databaseName }}.{{ .Release.Namespace }}.svc.cluster.local
+          {{ else }}
+          - name: KONG_CASSANDRA_CONTACT_POINTS
+            value: {{ .Values.database.KONG_CASSANDRA_CONTACT_POINTS }}
+          {{end}}
+          - name: KONG_CASSANDRA_PORT
+            value: {{ .Values.database.KONG_CASSANDRA_PORT }}
+          - name: KONG_CASSANDRA_KEYSPACE
+            value: {{ .Values.database.KONG_CASSANDRA_KEYSPACE}}
+          - name: KONG_CASSANDRA_REPL_FACTOR
+            value: {{ .Values.database.KONG_CASSANDRA_REPL_FACTOR | quote }}
+        {{ else if eq .Values.database.KONG_DATABASE "postgres" }}
+          - name: KONG_PG_DATABASE
+            value: {{ .Values.database.KONG_PG_DATABASE }}
+          - name: KONG_PG_USER
+            value: {{ .Values.database.KONG_PG_USER }}
+          - name: KONG_PG_PASSWORD
+            value: {{ .Values.database.KONG_PG_PASSWORD }}
+            {{ if .Values.database.deployment.deployStore }}
+          - name: KONG_PG_HOST
+            value: {{ .Release.Name }}-{{ .Values.database.deployment.databaseName }}.{{ .Release.Namespace }}.svc.cluster.local
+            {{ else }}
+          - name: KONG_PG_HOST
+            value: {{ .Values.database.KONG_PG_HOST }}
+          - name: KONG_PG_PORT
+            value: {{ .Values.database.KONG_PG_PORT }}
+            {{ end }}
+        {{ end }}
+        command: [ "/bin/sh", "-c", "kong start --run-migrations --vv" ]
+        ports:
+        - name: admin
+          containerPort: {{ .Values.services.admin.containerPort }}
+          protocol: TCP
+        - name: admin-ssl
+          containerPort: {{ .Values.services.admin.containerSSLPort }}
+          protocol: TCP
+        - name: proxy
+          containerPort: {{ .Values.services.proxy.containerPort }}
+          protocol: TCP
+        - name: proxy-ssl
+          containerPort: {{ .Values.services.proxy.containerSSLPort }}
+          protocol: TCP

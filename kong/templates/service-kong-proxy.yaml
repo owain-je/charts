@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-proxy
+spec:
+  type: {{ .Values.services.proxy.type }}
+  ports:
+  - name: kong-proxy
+    port: {{ .Values.services.proxy.servicePort }}
+    targetPort: {{ .Values.services.proxy.containerPort }}
+    protocol: TCP
+  - name: kong-proxy-ssl
+    port: {{ .Values.services.proxy.serviceSSLPort }}
+    targetPort: {{ .Values.services.proxy.containerSSLPort }}
+    protocol: TCP
+  selector:
+    app: {{ .Release.Name }}-{{ .Values.kongAppName }}
